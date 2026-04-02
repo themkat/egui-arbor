@@ -485,10 +485,12 @@ impl OutlinerActions<TreeNode> for TreeActions {
         ui.label(format!("Context menu for {}", id));
         if ui.button("Action 1").clicked() {
             println!("Context menu {} button 1 clicked", id);
+            ui.close_menu();
         }
 
         if ui.button("Action 2").clicked() {
             println!("Context menu {} button 2 clicked", id);
+            ui.close_menu();
         }
     }
 }
