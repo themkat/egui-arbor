@@ -480,6 +480,17 @@ impl OutlinerActions<TreeNode> for TreeActions {
     fn on_custom_action(&mut self, _id: &u64, _icon: &str) {
         // Custom actions not used in this example
     }
+
+    fn context_menu_for_node(&mut self, ui: &mut egui::Ui, id: &<TreeNode as OutlinerNode>::Id) {
+        ui.label(format!("Context menu for {}", id));
+        if ui.button("Action 1").clicked() {
+            println!("Context menu {} button 1 clicked", id);
+        }
+
+        if ui.button("Action 2").clicked() {
+            println!("Context menu {} button 2 clicked", id);
+        }
+    }
 }
 
 /// The main application demonstrating egui-arbor features.

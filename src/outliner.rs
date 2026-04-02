@@ -406,6 +406,10 @@ impl Outliner {
                 if label_response.secondary_clicked() {
                     response.context_menu = Some(node_id.clone());
                 }
+
+                label_response.context_menu(|ui| {
+                    actions.context_menu_for_node(ui, &node_id);
+                });
             }
 
             // Render action icons (right-aligned)

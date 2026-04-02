@@ -311,6 +311,14 @@ pub trait OutlinerActions<N: OutlinerNode> {
     /// * `id` - The unique identifier of the node
     /// * `icon` - The icon identifier from the custom action icon
     fn on_custom_action(&mut self, id: &N::Id, icon: &str);
+
+    /// Called when a context menu is requested for a given node.
+    ///
+    /// # Parameters
+    ///
+    /// * `ui` - Egui UI instance that can be used to draw widgets in popup context menu.
+    /// * `id` - id of node where the context menu was requested.
+    fn context_menu_for_node(&mut self, ui: &mut egui::Ui, id: &N::Id) {}
 }
 
 /// The type of icon to display next to a node.
